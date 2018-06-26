@@ -27,6 +27,7 @@ The following optional tools are recommended, but not required.
 - [GitHub Desktop](https://desktop.github.com/) for Git Shell and Git repository utilities
 - [Postman](https://www.getpostman.com/) for issuing HTTP(S) requests to your functions.
 - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to interact with local and Azure based storage resources.
+- [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local development using queues, blobs and tables.
 
 ## <a name="3"></a>3. Clone Git repository for lab code
 The workshop uses a Git repository for this documentation and the completed labs. 

@@ -8,6 +8,7 @@ Goals for this lab:
 - [Run your Azure Function](#3)
 - [Explore anatomy of a Function](#4)
 - [Discover settings and configuration of a Function App](#5)
+
 ## <a name="1"></a>1. Create a Function App in Azure
 
 This part requires you have an active Azure subscription. If you do not, you can create a trial account at [Microsoft Azure](https://azure.microsoft.com/en-us/free/). It will require access to a credit card, even though it will not be charged.
