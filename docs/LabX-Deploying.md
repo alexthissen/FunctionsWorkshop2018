@@ -104,4 +104,4 @@ Check that the settings are all present now in your Function App and that it sti
 With the application deployed manually including correct settings, you are in good shape to create a pipeline to automate build and release. 
 Open the Visual Studio Team Services (VSTS) portal and navigate to the team project for the workshop.
 You should see the Git repository under Code, Files. Navigate to the ```Build and Release``` tab and go to Builds.
-Choose to create a new Build definition and pick the repository where your source is located. This should be under VSTS Git, but you might have chosen a different location for your code repository. For VSTS Git, pick the team project, Repository and branch to checkout for a build. Choose the ```ASP.NET Core``` template  
+Choose to create a new Build definition and pick the repository where your source is located. This should be under VSTS Git, but you might have chosen a different location for your code repository. For VSTS Git, pick the team project, Repository and branch to checkout for a build. Choose the ```ASP.NET Core``` template .
