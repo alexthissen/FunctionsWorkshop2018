@@ -1,4 +1,4 @@
-# Lab 4 - Azure Functions in Visual Studio 2017
+# Lab 4 - Deploying Azure Functions
 
 In this lab you will learn how to deploy your Function App from your development machine to Azure. You are going to start by doing a manual deployment from the Command-Line Interface and progress to Visual Studio Team Services using a release pipeline.
 

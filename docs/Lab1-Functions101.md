@@ -94,3 +94,5 @@ Application Insights will open the corresponding blade for this Azure resource.
 
 In this lab you have created an Azure Function App and your first Function. You also executed the function from the available test window and from the browser. Finally you had a look at the other features available from the portal for the various settings and configuration of both functions and the Function App resource.
 
+Continue with [Lab 2 - Azure Functions in Visual Studio 2017](Lab2-VS2017.md).
+

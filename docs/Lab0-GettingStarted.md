@@ -50,4 +50,4 @@ $env:workshop = 'C:\Sources\FunctionsWorkshop2018
 ## Wrapup
 You have prepared your laptop and cloud environment to be ready for the next labs. Any issues you may have, can probably be resolved during the labs. Ask your fellow attendees or the proctor to help you, if you cannot solve the issues.
 
-Continue with [Lab 1 - Functions101](Lab1-Functions101.md).
+Continue with [Lab 1 - Azure Functions 101](Lab1-Functions101.md).
