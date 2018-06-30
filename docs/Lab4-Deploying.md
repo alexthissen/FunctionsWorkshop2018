@@ -4,7 +4,7 @@ In this lab you will learn how to deploy your Function App from your development
 
 Goals for this lab: 
 - [Deploy your Function App manually](#1)
-- [](#2)
+- [Configuring application settings from Azure CLI](#2)
 - [](#3)
 
 ## <a name="1"></a>1. Deploy your Function App manually
@@ -104,4 +104,43 @@ Check that the settings are all present now in your Function App and that it sti
 With the application deployed manually including correct settings, you are in good shape to create a pipeline to automate build and release. 
 Open the Visual Studio Team Services (VSTS) portal and navigate to the team project for the workshop.
 You should see the Git repository under Code, Files. Navigate to the ```Build and Release``` tab and go to Builds.
-Choose to create a new Build definition and pick the repository where your source is located. This should be under VSTS Git, but you might have chosen a different location for your code repository. For VSTS Git, pick the team project, Repository and branch to checkout for a build. Choose the ```ASP.NET Core``` template .
+Choose to create a new Build definition and pick the repository where your source is located. This should be under VSTS Git, but you might have chosen a different location for your code repository. For VSTS Git, pick the team project, Repository and branch to checkout for a build. Choose the ```ASP.NET Core``` template.
+
+<img src="images/BuildPipeline.png" height="400"/>
+
+Inspect each of the steps. To make this pipeline work you need to change some settings of the ```Publish``` task. Uncheck the ```Publish Web Projects``` checkbox and change the ```Path to the project(s)``` to be that of your Function App project, e.g. ```**/FunctionsWorkshop2018.csproj```.
+
+After these changes you should be able to perform a successful build. To verify queue a new build from the ```Queue``` button at the top. 
+
+## <a name="4"></a>4. Releasing your Function App to Azure
+
+After a successful build you probably want to release your Function App to Azure. 
+
+Create a new Release pipeline from the Releases tab. Choose the ```Azure App Service Deployment``` template, name your environment ```Production``` and find that your pipeline looks like similar to this:
+
+<img src="images/ReleasePipeline.png" height="200"/>
+
+Navigate to the Tasks of the pipeline by clicking the link in the Production environment that reads ```1 phase, 1 task```. At the top of the left pane there will be a block with the name of the environment. Once selected, you should see the most important settings to the right.
+You need to select your own Azure subscription in the corresponding dropdown. If you haven't created an Azure Resource Manager service endpoint yet, you need to click the ```Manage``` link and create such a service endpoint. After that you can refresh the dropdown with the Refresh button and select your subscription. Next, select the ```Function App``` as the application type and your previously created Function App from the bottom dropdown.
+
+Save the Release pipeline and queue a new release from the successful build you did previously. Verify that the release completes without errors and that the Function App works correctly.
+
+You will need to be able to set the Application Settings of the Web App that hosts your Function App. You already did this from the Azure CLI before. This can also be done from a VSTS task during release.
+Add a new ```Azure CLI``` task to the pipeline and point it to the same Azure subscription. Switch the script location to be inline script. Use the following inline script in this task:
+
+```
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=beta azurefunctions-queues=$(StorageConnection) azurefunctions-tables=$(StorageConnection) azurefunctions-blobs=$(StorageConnection) --name FunctionsWorkshop2018 --resource-group FunctionsWorkshop2018
+```
+
+and create a variable in the Release pipeline tab called ```Variables```. The variable should be named ```StorageConnection``` and have the same value as you assigned before using the Azure CLI script.
+
+Save your Release pipeline and create a new release. Check that everything get deployed successfully and fix any errors.
+
+## Wrapup
+In this lab you have created a VSTS build and release pipeline to automate deploying your Function App in Azure.
+
+Continue with [Lab 5 - ](Lab5-.md).
+
+
+
+
