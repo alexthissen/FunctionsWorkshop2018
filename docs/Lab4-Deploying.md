@@ -136,10 +136,30 @@ and create a variable in the Release pipeline tab called ```Variables```. The va
 
 Save your Release pipeline and create a new release. Check that everything get deployed successfully and fix any errors.
 
-## Wrapup
-In this lab you have created a VSTS build and release pipeline to automate deploying your Function App in Azure.
+## <a name="5"></a>5. Provisioning a Function App using Azure Resource Manager
 
-Continue with [Lab 5 - ](Lab5-.md).
+In this final part you are going to provision the Function App from a VSTS release pipeline. The preferred mechanism is to use Azure Resource Manager (ARM) templates. 
+Since you already have an existing Azure Function App you can get the ARM template from the Azure portal. Go to your resource group where you deployed the Function App originally. 
+
+At the top of the Overview of the resource group you should find a link underneath a section called ```Deployments```. Follow the link and check the various deployments that were performed. This might include your release pipeline deployments. Select the very first deployment and a new blade will open. You should see the template for this deployment with around 4 parameters and 3 resources. On the top menu, click the Download link and store the zip file in a known location.
+
+Extract the files from the zip file to the root of your solution and add them as existing files in a solution folder called ```deployments```. Rename the files to be ```AzureFunction.json``` and ```AzureFunction.parameters.json```.
+
+In the Azure portal you can create a new resource group to test the ARM template deployment. After creating the resource group you can open a console window and run the following command using the Azure CLI:
+```
+az group deployment create --name CLIDeployment --resource-group ServerlessFunctions --template-file AzureFunction.json --parameters @AzureFunction.parameters.json
+```
+
+Make sure to change the value for the resource group to the test group you created a moment ago. If the deployment succeeds, continue with the next step after checking in the changes.
+
+Next, go to your VSTS Team project and create a new release pipeline. Start with an empty pipeline. Name the environment ```Acceptance```. Add an artifact for the pipeling and pick Git with your code repository and master branch. Switch to the Tasks tab and add a ```Azure Resource Group Deployment``` to the empty list of tasks. Configure the Azure subscription and set the correct resource group. In the ```Template``` and ```Template parameters``` fields click the elipsis and select the ARM template and parameters file respectively.
+
+Save the release pipeline and start a new release. Verify that the deployment works and fix any errors. After successful deployment, you can use your deployment pipeline to release your Function App to the newly provisioned ARM resource.
+
+## Wrapup
+In this lab you have created a VSTS build and release pipeline to automate deploying your Function App in Azure. You also used Azure CLI to deploy individual application settings. Finally, you have created provisioning pipeline to automate creation of the Azure resources for your Function App.
+
+Continue with [Lab 5 - Securing your Azure Functions](Lab5-Securing.md).
 
 
 
