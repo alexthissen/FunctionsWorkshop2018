@@ -3,9 +3,8 @@
 In this lab you will create a couple of unit tests for your Azure Functions. This allows you to test your functions without having to actually host and call them. Unit tests for Azure Functions are a bit different from regular unit tests, but still comparable.
 
 Goals for this lab: 
-- [Unit testing HTTP triggered functions](#1)
-- [](#2)
-- [](#3)
+- [Unit testing Http triggered functions](#1)
+- [Unit testing POST Http Triggers](#2)
 
 ## <a name="1"></a>1. Unit testing HTTP triggered functions
 
@@ -15,7 +14,11 @@ To setup unit testing you need to add a Unit Test project to your solution. Yuo 
 2. Include NuGet package reference to Moq. Alternatively, you can select your own mocking framework.
 
 This lab assumes you are using MSTest and Moq.
-You will create a unit test for the DumpHeadersFunction first. Take a moment to look at the signature of that function. Forget about the attributes you see and focus on the bare signature. Which arguments do you need to pass?
+You will create a unit test for the DumpHeadersFunction first. 
+
+> Take a moment to look at the signature of that function. Forget about the attributes you see and focus on the bare signature. 
+>
+> Which arguments do you need to pass?
 
 Next, change the name of the precreated unit test to be like this:
 ```
@@ -71,7 +74,12 @@ Add a new unit test method to the project:
 public async Task GivenRequestHasInvalidScore_WhenRunIsCalled_BadRequestResponseShouldBeReturned()
 ```
 
-The Arrange part will now look like the following: 
+Define a readonly string for the player name and give it a value for your favorite nickname.
+```
+public readonly string playerName = "LX360";
+```
+
+Inside the unit test the Arrange part will now look like the following: 
 ```
 // Arrange
 ILogger log = new Mock<ILogger>().Object;
@@ -91,7 +99,9 @@ stream.Position = 0;
 request.Setup(req => req.Body).Returns(stream);
 ```
 
-Notice how the setup of the body is being performed. Why is it not necessary to setup the request's ```Method``` and ```Path``` properties?
+> Notice how the setup of the body is being performed. 
+> 
+> Why is it not necessary to setup the request's ```Method``` and ```Path``` properties?
 
 Next, include the Act in the unit test:
 ```

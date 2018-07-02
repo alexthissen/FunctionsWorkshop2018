@@ -5,7 +5,9 @@ In this lab you will learn how to deploy your Function App from your development
 Goals for this lab: 
 - [Deploy your Function App manually](#1)
 - [Configuring application settings from Azure CLI](#2)
-- [](#3)
+- [Building your Function App in VSTS](#3)
+- [Releasing your Function App to Azure](#4)
+- [Provisioning a Function App using Azure Resource Manager](#5)
 
 ## <a name="1"></a>1. Deploy your Function App manually
 
@@ -43,9 +45,16 @@ Upload completed successfully.
 Syncing triggers...
 ```
 
-Open the Azure portal and verify that the app was published successfully. Navigate to the Function App just published and check whether it is functioning correctly. Start by verifying the DumpHeadersFunction from the portal. Does it work, and if so, why? Fix your application if this function doesn't function correctly.
+Open the Azure portal and verify that the app was published successfully. Navigate to the Function App just published and check whether it is functioning correctly. 
 
-Proceed to the QRCodeGeneratorFunction. Check the resource group of your Function App to find the name of the Azure Storage resource. Drop a message in the queue and check if it is being processed. Before continuing, reason about what could be wrong.
+> Start by verifying the DumpHeadersFunction from the portal. 
+> 
+> Does it work, and if so, why? 
+> Fix your application if this function doesn't function correctly.
+
+Proceed to the QRCodeGeneratorFunction. Check the resource group of your Function App to find the name of the Azure Storage resource. Drop a message in the queue and check if it is being processed. 
+
+> Before continuing, reason about what could be wrong.
 
 You may have come to the conclusion that the application settings are not complete. The missing settings need to be deployed and should have the correct values.
 Use the following command to retrieve all settings from the specified Function App.
@@ -141,7 +150,15 @@ Save your Release pipeline and create a new release. Check that everything get d
 In this final part you are going to provision the Function App from a VSTS release pipeline. The preferred mechanism is to use Azure Resource Manager (ARM) templates. 
 Since you already have an existing Azure Function App you can get the ARM template from the Azure portal. Go to your resource group where you deployed the Function App originally. 
 
-At the top of the Overview of the resource group you should find a link underneath a section called ```Deployments```. Follow the link and check the various deployments that were performed. This might include your release pipeline deployments. Select the very first deployment and a new blade will open. You should see the template for this deployment with around 4 parameters and 3 resources. On the top menu, click the Download link and store the zip file in a known location.
+At the top of the Overview of the resource group you should find a link underneath a section called ```Deployments```. 
+
+<img src="images/ResourceGroupDeployments.png" height="150"/>
+
+Follow the link and check the various deployments that were performed. This might include your release pipeline deployments. 
+
+<img src="images/ResourceGroupDeployments2.png" height="200"/>
+
+Select the very first deployment and a new blade will open. You should see the template for this deployment with around 4 parameters and 3 resources. On the top menu, click the Download link and store the zip file in a known location.
 
 Extract the files from the zip file to the root of your solution and add them as existing files in a solution folder called ```deployments```. Rename the files to be ```AzureFunction.json``` and ```AzureFunction.parameters.json```.
 

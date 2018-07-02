@@ -5,7 +5,6 @@ In this lab you will learn how to secure your functions in a Function App. You a
 Goals for this lab: 
 - [Adding function level security](#1)
 - [Using social identity authentication providers](#2)
-- [](#3)
 
 ## <a name="1"></a>1. Adding function level security
 
@@ -50,8 +49,9 @@ Note that the MSA provider might require a little more time to become active.
 Here are some ideas to spend some additional time on securing your Function App:
 - Configure one of the other social identity authentication providers.
 - Read up on the difference between function and host keys, plus the two other two authorization levels of ```Admin``` and ```System```. What are those levels meant for? Which keys can you use and which not?
+- Turn on the Managed Service Identity (MSI) for the Function App from the Platform features. Try to read some secrets from the Azure Key Vault. You will have to create that vault and give the MSI of the Function App read and list access to the secrets. With a NuGet package you should be able to read secrets by only passing the URL of the Key Vault.
 
 ## Wrapup
 In this lab you have secured your Function App by introducing key based function level authorization levels and by integrating with one or more authentication providers. 
 
-Continue with [Lab 6 - ](Lab6-.md).
+Continue with [Lab 6 - Durable Functions](Lab6-DurableFunctions.md).
