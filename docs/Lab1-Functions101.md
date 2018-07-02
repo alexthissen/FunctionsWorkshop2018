@@ -38,7 +38,7 @@ One the left menu select Functions and notice that there are no functions yet. A
 
 You might encounter this window:
 
-![New Function](/images/Newfunction.png)
+![New Function](Images/Newfunction.png)
 
 Simply choose ```Custom function``` from the bottom half and continue.
 
@@ -83,7 +83,7 @@ The final part of this lab will allow you to freely explore and discover setting
 
 Here are some interesting areas to look into. Select the link for your function in the left menu under functions. This should bring you to the main page of your function. Pick any of the links under ```Configured features```.
 
-![Configured Features](/images/ConfiguredFeatures.png)
+![Configured Features](Images/ConfiguredFeatures.png)
 
 Both the ```Function app settings``` and the ```Application settings``` should open new tabs at the top, next to the ```Platform features``` tab that was already present. Feel free to roam around and acquaint yourself with the configuration and settings present in each of these.
 

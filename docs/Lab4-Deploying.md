@@ -118,7 +118,7 @@ After a successful build you probably want to release your Function App to Azure
 
 Create a new Release pipeline from the Releases tab. Choose the ```Azure App Service Deployment``` template, name your environment ```Production``` and find that your pipeline looks like similar to this:
 
-![Release Pipeline](/images/ReleasePipeline.png)
+![Release Pipeline](Images/ReleasePipeline.png)
 
 Navigate to the Tasks of the pipeline by clicking the link in the Production environment that reads ```1 phase, 1 task```. At the top of the left pane there will be a block with the name of the environment. Once selected, you should see the most important settings to the right.
 You need to select your own Azure subscription in the corresponding dropdown. If you haven't created an Azure Resource Manager service endpoint yet, you need to click the ```Manage``` link and create such a service endpoint. After that you can refresh the dropdown with the Refresh button and select your subscription. Next, select the ```Function App``` as the application type and your previously created Function App from the bottom dropdown.
