@@ -1,12 +1,12 @@
 # Lab 1 - Azure Functions 101
 
-In this lab you will make your first steps exploring Azure Functions from the Azure portal. You are going to spend some time discovering various aspects from the 
+In this lab, you will make your first steps in exploring Azure Functions from the Azure portal. You are going to spend some time discovering various aspects from the 
 
 Goals for this lab: 
 - [Create a Function App](#1)
 - [Create your first Azure Function](#2)
 - [Run your Azure Function](#3)
-- [Explore anatomy of a Function](#4)
+- [Explore the anatomy of a Function](#4)
 - [Discover settings and configuration of a Function App](#5)
 
 ## <a name="1"></a>1. Create a Function App in Azure
@@ -23,7 +23,7 @@ In the details of the Create blade choose the following:
 - **Hosting plan**: Consumption
 - **Location**: Preferably same as the location of the resource group.
 - **Storage**: New, and give it a proper name, e.g. your function name with a ```storage``` postfix. Make sure the name is all lowercase and not longer than 24 characters.
-- **Application Insights**: On, and in same location as the resource group.
+- **Application Insights**: On, and in the same location as the resource group.
 
 Click Create to start the deployment of the resources.
 
@@ -52,7 +52,7 @@ Set the language to C# and Authorization level to ```Function```. Finally, click
 
 Expand the Tab to the right of the function ```run.csx```. Select GET as the HTTP method and fill in a value in the textbox for the ```name``` parameter.  
 Next, click the Run button and see what happens. 
-Also try it without any value for the ```name``` parameter.
+Also, try it without any value for the ```name``` parameter.
 
 Another way of running your HTTP function is by using the link from the function's URL. Find this URL by clicking on the ```</> Get function URL``` link next to the Run button. Copy the link and paste it into your browser's address bar. Navigate to the URL. 
 
@@ -60,7 +60,7 @@ Another way of running your HTTP function is by using the link from the function
 >
 > What do you need to do execute the function successfully?
 
-## <a name="4"></a>4. Explore anatomy of a Function
+## <a name="4"></a>4. Explore the anatomy of a Function
 
 Now that you have your first function, let's spend some time looking around the Function App. 
 
@@ -74,7 +74,7 @@ Proceed to have a look at the other menu items of ```Manage``` and ```Monitor```
 
 > What can you do at each of these two items?
 
-From the Monitor tab it is also interesting to follow the ```Run in Application Insights``` link at the top.
+From the Monitor tab, it is also interesting to follow the ```Run in Application Insights``` link at the top.
 
 ## <a name="5"></a>5. Discover settings and configuration of a Function App
 
@@ -86,13 +86,13 @@ Here are some interesting areas to look into. Select the link for your function 
 
 Both the ```Function app settings``` and the ```Application settings``` should open new tabs at the top, next to the ```Platform features``` tab that was already present. Feel free to roam around and acquaint yourself with the configuration and settings present in each of these.
 
-> Do you recognize the features that are present under ``` Platform features```. What does it tell you of the inner workings of a Azure Function?
+> Do you recognize the features that are present under ``` Platform features```? What does it tell you of the inner workings of an Azure Function?
 
 Application Insights will open the corresponding blade for this Azure resource.
 
 ## Wrapup
 
-In this lab you have created an Azure Function App and your first Function. You also executed the function from the available test window and from the browser. Finally you had a look at the other features available from the portal for the various settings and configuration of both functions and the Function App resource.
+In this lab, you have created an Azure Function App and your first Function. You also executed the function from the available test window and from the browser. Finally, you had a look at the other features available from the portal for the various settings and configuration of both functions and the Function App resource.
 
 Continue with [Lab 2 - Azure Functions in Visual Studio 2017](Lab2-VS2017.md).
 
