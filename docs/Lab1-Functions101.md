@@ -51,15 +51,15 @@ Set the language to C# and Authorization level to ```Function```. Finally, click
 
 ## <a name="3"></a>3. Run your first Azure Function 
 
-Expand the Tab to the right of the function ```run.csx```. Select GET as the HTTP method and fill in a value in the textbox for the ```name``` parameter.  
-Next, click the Run button and see what happens. 
+Expand the `Test` tab to the right of the function ```run.csx```. Select `GET` as the HTTP method and fill in a value in the textbox for the ```name``` parameter.  
+Next, click the `Run` button and see what happens. 
 Also, try it without any value for the ```name``` parameter.
 
-Another way of running your HTTP function is by using the link from the function's URL. Find this URL by clicking on the ```</> Get function URL``` link next to the Run button. Copy the link and paste it into your browser's address bar. Navigate to the URL. 
+Another way of running your HTTP function is by using the link from the function's URL. Find this URL by clicking on the ```</> Get function URL``` link next to the `Run` button. Copy the link and paste it into your browser's address bar. Navigate to the URL. 
 
 > Does it work? 
 >
-> What do you need to do execute the function successfully?
+> What do you need to do in order to execute the function successfully?
 
 ## <a name="4"></a>4. Explore the anatomy of a Function
 
