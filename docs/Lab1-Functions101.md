@@ -37,7 +37,7 @@ Open the newly blade for the created Function App in the portal.
 One the left menu select Functions and notice that there are no functions yet. At the top of the list click the ```New function``` next to the plus sign. Alternatively, you can also choose the plus sign next to the Function menu item on the left.
 
 You might encounter this window:
-<img src="images/Newfunction.png" height="400"/>
+<img src="/images/Newfunction.png" height="400"/>
 
 Simply choose ```Custom function``` from the bottom half and continue.
 
@@ -82,7 +82,7 @@ The final part of this lab will allow you to freely explore and discover setting
 
 Here are some interesting areas to look into. Select the link for your function in the left menu under functions. This should bring you to the main page of your function. Pick any of the links under ```Configured features```.
 
-<img src="images/ConfiguredFeatures.png" height="200"/>
+<img src="/images/ConfiguredFeatures.png" height="200"/>
 
 Both the ```Function app settings``` and the ```Application settings``` should open new tabs at the top, next to the ```Platform features``` tab that was already present. Feel free to roam around and acquaint yourself with the configuration and settings present in each of these.
 

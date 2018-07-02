@@ -106,7 +106,7 @@ Open the Visual Studio Team Services (VSTS) portal and navigate to the team proj
 You should see the Git repository under Code, Files. Navigate to the ```Build and Release``` tab and go to Builds.
 Choose to create a new Build definition and pick the repository where your source is located. This should be under VSTS Git, but you might have chosen a different location for your code repository. For VSTS Git, pick the team project, Repository and branch to checkout for a build. Choose the ```ASP.NET Core``` template.
 
-<img src="images/BuildPipeline.png" height="400"/>
+<img src="/images/BuildPipeline.png" height="400"/>
 
 Inspect each of the steps. To make this pipeline work you need to change some settings of the ```Publish``` task. Uncheck the ```Publish Web Projects``` checkbox and change the ```Path to the project(s)``` to be that of your Function App project, e.g. ```**/FunctionsWorkshop2018.csproj```.
 
@@ -118,7 +118,7 @@ After a successful build you probably want to release your Function App to Azure
 
 Create a new Release pipeline from the Releases tab. Choose the ```Azure App Service Deployment``` template, name your environment ```Production``` and find that your pipeline looks like similar to this:
 
-<img src="images/ReleasePipeline.png" height="200"/>
+<img src="/images/ReleasePipeline.png" height="200"/>
 
 Navigate to the Tasks of the pipeline by clicking the link in the Production environment that reads ```1 phase, 1 task```. At the top of the left pane there will be a block with the name of the environment. Once selected, you should see the most important settings to the right.
 You need to select your own Azure subscription in the corresponding dropdown. If you haven't created an Azure Resource Manager service endpoint yet, you need to click the ```Manage``` link and create such a service endpoint. After that you can refresh the dropdown with the Refresh button and select your subscription. Next, select the ```Function App``` as the application type and your previously created Function App from the bottom dropdown.
