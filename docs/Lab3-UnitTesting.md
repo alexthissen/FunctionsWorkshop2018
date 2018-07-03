@@ -1,6 +1,6 @@
 # Lab 3 - Unit testing Azure Functions
 
-In this lab you will create a couple of unit tests for your Azure Functions. This allows you to test your functions without having to actually host and call them. Unit tests for Azure Functions are a bit different from regular unit tests, but still comparable.
+In this lab, you will create a couple of unit tests for your Azure Functions. This allows you to test your functions without having to actually host and call them. Unit tests for Azure Functions are a bit different from regular unit tests, but still comparable.
 
 Goals for this lab: 
 - [Unit testing Http triggered functions](#1)
@@ -8,7 +8,7 @@ Goals for this lab:
 
 ## <a name="1"></a>1. Unit testing HTTP triggered functions
 
-To setup unit testing you need to add a Unit Test project to your solution. Yuo can choose your preferred unit test framework, such as MSTest or XUnit. Prepare the test project by taking the following steps:
+To setup unit testing you need to add a Unit Test project to your solution. You can choose your preferred unit test framework, such as MSTest or XUnit. Prepare the test project by taking the following steps:
 
 1. Add a project reference to the Function App project.
 2. Include NuGet package reference to Moq. Alternatively, you can select your own mocking framework.
@@ -37,7 +37,7 @@ request.Setup(r => r.Headers).Returns(headers);
 ```
 This will create a ```HttpRequest``` mock that pretends to have 1 header ```custom```.
 
-Create a new file ```MockTraceWriter.cs``` and add code to have a dummy implementation of the ```TraceWriter``` class.
+Create a new file ```MockTraceWriter.cs``` and add code to have a dummy implementation of the ```TraceWriter``` class from the `Microsoft.Azure.WebJobs.Host` namespace.
 ```
 public class MockTraceWriter : TraceWriter
 {
@@ -66,7 +66,7 @@ Execute the unit test from the Test Explorer. If all goes well it should execute
 
 ## <a name="2"></a>2. Unit testing POST Http Triggers
 
-Testing a Http Trigger based Function is a little trickier. It involves more work to setting up the mock ```HttpRequest``` object.
+Testing a POST Http Trigger based Function is a little trickier. It involves more work to set up the mock ```HttpRequest``` object.
 
 Add a new unit test method to the project:
 ```
