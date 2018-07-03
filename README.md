@@ -3,7 +3,7 @@
 
 Welcome to the workshop "Server-less .NET solutions using Azure Functions". 
 
-In this workshop you will create a .NET based solutions with Azure Functions using Visual Studio 2017.
+In this workshop you will create a .NET based solution with Azure Functions using Visual Studio 2017.
 
 To get the best experience with the hands-on-labs it is recommended that you prepare the following:
 - Laptop for development and running Azure Functions locally
