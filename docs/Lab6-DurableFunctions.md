@@ -4,8 +4,8 @@ In this lab you will learn how to program durable functions using the Durable Ex
 
 Goals for this lab: 
 - [A durable Hello World function](#1)
-- [](#2)
-- [](#3)
+- [Building an orchestration and activities](#2)
+- [Imperative bindings](#3)
 
 ## <a name="1"></a>1. A durable Hello World function
 
@@ -111,7 +111,27 @@ Compile the project, fix any errors and start the project. Navigate to the new U
 
 The problem lies in the fact that a Durable Function and any of its orchestrations and activities may get retried. It should be idempotent and give the same results every time it is run or retried. The ```{rand-guid}``` expression causes a new blob object to be created every time. This needs to be fixed.
 
-Remove the argument
+Remove the parameter for the ```CloudBlockBlob``` object from the signature of the ```QRCodeGeneratorActivity``` and replace it with a ```Binder binder```. Change the code inside the activity to include this after the 3 QRCode lines:
+```
+var attributes = new Attribute[]
+{
+    new BlobAttribute("azurefunctions-qrcode-images/" + score.Nickname,
+    FileAccess.ReadWrite),
+    new StorageAccountAttribute("azurefunctions-blobs")
+};
+
+CloudBlockBlob blob = await binder.BindAsync<CloudBlockBlob>(attributes);
+```
+
+Compile and run the function again and check what happens blob are created inside the blob container.
+
+## <a name="4"></a>4. If you have time left...
+
+On the next part, you are on your own. Here are the tasks you need to complete:
+1. Add another activity that will store the high score into a storage table.
+2. Refactor the code in the HTTP starter function to read the high score from the body content.
 
 ## Wrapup
-In this lab you have secured your Function App by introducing key based function level authorization levels and by integrating with one or more authentication providers. 
+In this lab you have created your first durable functions and learned how to partition these into orchestrations and activities. You also refactored code to do imperative binding for more control over your input and output bindings.
+
+With this, you have successfully completed your labs for this workshop. Feel free to experiment with Azure Functions and discover and learn more about this amazing framework and programming model.
