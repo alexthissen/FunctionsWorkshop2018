@@ -1,0 +1,17 @@
+[
+  {
+    "Game": "Pacman",
+    "Nickname": "LX360",
+    "Score": 1337
+  },
+  {
+    "Game": "Space Invaders",
+    "Nickname": "MadMax",
+    "Score": 123456
+  },
+  {
+    "Game": "Donkey Kong",
+    "Nickname": "Wes Copeland",
+    "Score": 1218000
+  }
+]
