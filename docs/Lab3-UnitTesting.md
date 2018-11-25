@@ -29,26 +29,13 @@ public void GivenRequestHasHeaders_WhenRunIsCalled_ResponseShouldReflectHeaderVa
 Add an Arrange section for mocking the ```HttpRequest``` object.
 ```
 // Arrange
-MockTraceWriter log = new MockTraceWriter();
+var log = new Mock<ILogger>().Object;
 var request = new Mock<HttpRequest>();
 var headers = new HeaderDictionary();
 headers.Add("custom", "AzureFunctions");
 request.Setup(r => r.Headers).Returns(headers);
 ```
 This will create a ```HttpRequest``` mock that pretends to have 1 header ```custom```.
-
-Create a new file ```MockTraceWriter.cs``` and add code to have a dummy implementation of the ```TraceWriter``` class from the `Microsoft.Azure.WebJobs.Host` namespace.
-```
-public class MockTraceWriter : TraceWriter
-{
-    List<TraceEvent> events = new List<TraceEvent>();
-    public MockTraceWriter() : base(TraceLevel.Info) { }
-    public override void Trace(TraceEvent traceEvent)
-    {
-        events.Add(traceEvent);
-    }
-}
-```
 
 Continue to add the Act part of the unit test:
 ```

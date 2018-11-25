@@ -1,4 +1,4 @@
-﻿namespace ServerlessFunctionsAppNETCore20
+﻿namespace ServerlessFunctionsAppNETCore
 {
     public class HighScore
     {

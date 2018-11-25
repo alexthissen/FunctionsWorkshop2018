@@ -6,9 +6,9 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using ServerlessFunctionsAppNETCore20.Activities;
+using ServerlessFunctionsAppNETCore.Activities;
 
-namespace ServerlessFunctionsAppNETCore20.Orchestrations
+namespace ServerlessFunctionsAppNETCore.Orchestrations
 {
     public static class RegisterNewHighScoreOrchestration
     {
