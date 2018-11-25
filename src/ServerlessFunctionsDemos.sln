@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		AzureFunction.json = AzureFunction.json
 		AzureFunction.parameters.json = AzureFunction.parameters.json
-		global.json = global.json
 		samplehighscores.json = samplehighscores.json
+		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessFunctionsAppNETCore20", "ServerlessFunctionsAppNETCore20\ServerlessFunctionsAppNETCore20.csproj", "{E7F52998-DD07-49E1-ADC3-F6A4F38DBED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessFunctionsAppNETCore", "ServerlessFunctionsAppNETCore\ServerlessFunctionsAppNETCore.csproj", "{E7F52998-DD07-49E1-ADC3-F6A4F38DBED1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessFunctionsAppNETCore20.Tests", "ServerlessFunctionsAppNETCore20.Tests\ServerlessFunctionsAppNETCore20.Tests.csproj", "{7C448058-847D-401C-B0BC-78073E693631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessFunctionsAppNETCore.Tests", "ServerlessFunctionsAppNETCore.Tests\ServerlessFunctionsAppNETCore.Tests.csproj", "{7C448058-847D-401C-B0BC-78073E693631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

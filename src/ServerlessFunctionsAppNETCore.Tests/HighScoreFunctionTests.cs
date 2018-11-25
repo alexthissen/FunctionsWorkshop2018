@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Primitives;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ServerlessFunctionsAppNETCore20.Tests
+namespace ServerlessFunctionsAppNETCore.Tests
 {
     [TestClass]
     public class HighScoreFunctionTests

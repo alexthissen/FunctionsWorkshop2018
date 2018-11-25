@@ -63,7 +63,7 @@ Use the following command to retrieve all settings from the specified Function A
 func azure functionapp fetch-app-settings FunctionsWorkshop2018
 ```
 
-This will write the settings from the portal to your ```local.settings.json``` file in the ```bin\Release\netstandard2.0``` folder. It will not overwrite your own local settings file in the root of the solution folder.
+This will write the settings from the portal to your ```local.settings.json``` file in the ```bin\Release\netcoreapp2.1``` folder. It will not overwrite your own local settings file in the root of the solution folder.
 Edit the file for your local settings and add three new settings (if necessary) for the queues, tables and blob containers. 
 - ```azurefunctions-queues```
 - ```azurefunctions-tables```

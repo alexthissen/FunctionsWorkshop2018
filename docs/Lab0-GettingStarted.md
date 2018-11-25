@@ -25,7 +25,7 @@ Second, you are going to need the Azure Functions tooling on your development ma
 The following optional tools are recommended, but not required.
 
 - [GitHub Desktop](https://desktop.github.com/) for Git Shell and Git repository utilities
-- [Postman](https://www.getpostman.com/) for issuing HTTP(S) requests to your functions.
+- [Postman](https://www.getpostman.com/) or the [VSCode REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for issuing HTTP(S) requests to your functions.
 - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to interact with local and Azure-based storage resources.
 - [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local development using queues, blobs and tables.
 

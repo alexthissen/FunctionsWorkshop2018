@@ -3,9 +3,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
-namespace ServerlessFunctionsAppNETCore20
+namespace ServerlessFunctionsAppNETCore
 {
     public static class DurableHelloWorldFunction
     {
@@ -25,9 +25,9 @@ namespace ServerlessFunctionsAppNETCore20
         }
 
         [FunctionName("DurableHelloWorldFunction_Hello")]
-        public static string SayHello([ActivityTrigger] string name, TraceWriter log)
+        public static string SayHello([ActivityTrigger] string name, ILogger log)
         {
-            log.Info($"Saying hello to {name}.");
+            log.LogInformation($"Saying hello to {name}.");
             return $"Hello {name}!";
         }
 
@@ -35,12 +35,12 @@ namespace ServerlessFunctionsAppNETCore20
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
             [OrchestrationClient]DurableOrchestrationClient starter,
-            TraceWriter log)
+            ILogger log)
         {
             // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync("DurableHelloWorldFunction", null);
 
-            log.Info($"Started orchestration with ID = '{instanceId}'.");
+            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 
             return starter.CreateCheckStatusResponse(req, instanceId);
         }

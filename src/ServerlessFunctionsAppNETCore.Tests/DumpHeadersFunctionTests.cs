@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Moq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace ServerlessFunctionsAppNETCore20.Tests
+namespace ServerlessFunctionsAppNETCore.Tests
 {
     [TestClass]
     public class DumpHeadersFunctionTests
@@ -16,14 +17,14 @@ namespace ServerlessFunctionsAppNETCore20.Tests
         public void GivenRequestHasHeaders_WhenRunIsCalled_ResponseShouldReflectHeaderValues()
         {
             // Arrange
-            MockTraceWriter log = new MockTraceWriter();
+            var log = new Mock<ILogger>();
             var request = new Mock<HttpRequest>();
             var headers = new HeaderDictionary();
             headers.Add("custom", "AzureFunctions");
             request.Setup(r => r.Headers).Returns(headers);
 
             // Act
-            var response = DumpHeadersFunction.Run(request.Object, log);
+            var response = DumpHeadersFunction.Run(request.Object, log.Object);
 
             // Assert
             var resultObject = (OkObjectResult)response;

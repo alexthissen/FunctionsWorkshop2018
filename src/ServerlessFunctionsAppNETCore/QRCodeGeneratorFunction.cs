@@ -1,14 +1,14 @@
-using System;
-using System.DrawingCore;
-using System.DrawingCore.Imaging;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Blob;
 using QRCoder;
 
-namespace ServerlessFunctionsAppNETCore20
+namespace ServerlessFunctionsAppNETCore
 {
     public static class QRCodeGeneratorFunction
     {
@@ -19,9 +19,9 @@ namespace ServerlessFunctionsAppNETCore20
             [Blob("azurefunctions-qrcode-images/{rand-guid}",
                 FileAccess.ReadWrite,
                 Connection = "azurefunctions-blobs")] CloudBlockBlob blob,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed: {imageText}");
+            log.LogInformation($"C# Queue trigger function processed: {imageText}");
 
             QRCodeGenerator generator = new QRCodeGenerator();
             QRCodeData data = generator.CreateQrCode(imageText, QRCodeGenerator.ECCLevel.H);

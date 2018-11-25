@@ -1,19 +1,19 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
-namespace ServerlessFunctionsAppNETCore20
+namespace ServerlessFunctionsAppNETCore
 {
     public static class ImportHighScoreFunction
     {
         [FunctionName("ImportHighScoreFunction")]
         public static async Task Run(
             [QueueTrigger("azurefunctions-import", Connection = "azurefunctions-queues")] HighScoreEntry[] entries,
-            TraceWriter log,
+            ILogger log,
             [Table("highscores", Connection = "azurefunctions-tables")] IAsyncCollector<HighScoreTableItem> table)
         {
-            log.Info("C# Queue trigger function processed");
+            log.LogInformation("C# Queue trigger function processed");
 
             foreach (HighScoreEntry entry in entries)
             {

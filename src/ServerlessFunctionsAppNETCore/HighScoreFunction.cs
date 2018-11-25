@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using System;
 
-namespace ServerlessFunctionsAppNETCore20
+namespace ServerlessFunctionsAppNETCore
 {
     public static class HighScoreFunction
     {

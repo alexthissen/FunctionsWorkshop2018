@@ -3,22 +3,20 @@ using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Blob;
 using QRCoder;
 using System;
-using System.Collections.Generic;
-using System.DrawingCore;
-using System.DrawingCore.Imaging;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerlessFunctionsAppNETCore20.Activities
+namespace ServerlessFunctionsAppNETCore.Activities
 {
     public static class QRCodeGeneratorActivity
     {
         [FunctionName(nameof(QRCodeGeneratorActivity))]
         public static async Task<string> Run([ActivityTrigger] HighScore score,
-            ILogger logger, Binder binder)
+            ILogger log, Binder binder)
         {
-            logger.LogInformation($"Generating QR Code for high score {score.Score} by {score.Nickname}");
+            log.LogInformation($"Generating QR Code for high score {score.Score} by {score.Nickname}");
 
             QRCodeGenerator generator = new QRCodeGenerator();
             QRCodeData data = generator.CreateQrCode($"{score.Nickname} scored {score.Score}", QRCodeGenerator.ECCLevel.H);
